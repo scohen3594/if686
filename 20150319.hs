@@ -46,3 +46,26 @@ sumPairs2 [] [] = []
 sumPairs2 [] (h:t) = (h:t)
 sumPairs2 (h:t) [] = (h:t)
 sumPairs2 (h1:t1) (h2:t2) = (h1+h2):(sumPairs2 t1 t2)
+
+
+
+
+--quicksort
+
+qsort :: [Int] -> [Int]
+qsort lista
+ | lista == [] = []
+ | (tail lista) == [] = [head lista]
+ | otherwise = (++) (qsort (menor (tail lista) (head lista)))  ((head lista):(qsort (maior (tail lista) (head lista))))
+
+menor :: [Int] -> Int -> [Int]
+menor listam val
+ | listam == [] = []
+ | ((head listam) <= val) = (head listam):(menor (tail listam) val)
+ | otherwise = menor (tail listam) val
+
+maior :: [Int] -> Int -> [Int]
+maior listaM val
+ | listaM == [] =[]
+ | ((head listaM) > val) = ((head listaM):(maior (tail listaM) val))
+ | otherwise = maior (tail listaM) val
