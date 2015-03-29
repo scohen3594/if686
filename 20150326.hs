@@ -98,6 +98,30 @@ qs1 [] = []
 qs1 (a:as) = (qs1 [x|x<-as, x<=a]) ++ (a:qs1[y|y<-as, y > a])
 
 
---agrupar :: Eq t => [t] -> [(t, Int)]
---agrupar [] = []
---agrupar (a:as)  
+--agrupar -- dá erro ao tentar generalizar
+separar :: String -> [Char] --separa primeiro elemento de uma string
+separar (a:as) = [a]
+
+teste1 :: String -> [[Char]] --concatena elemento por elemento da string
+teste1 a
+ | a == [] = []
+ | otherwise = (separar a):(teste1 (tail a))
+
+juntar :: [String] -> [[Char]] --juntar todas as strings desmembradas em uma só lista
+juntar (a:as) 
+ | as == [] = (teste1 a)
+ | otherwise = (teste1 a)++(juntar as)
+
+contar :: String -> [String] -> Int --conta dado elemento em uma lista
+contar s lista = length [x|x <- lista, (x==s)]
+
+tirar :: [String] -> String -> [String]
+tirar [] n = []
+tirar lista n = [x|x <- lista, (x /= n)]
+
+agrupar :: [String] -> [([Char], Int)] --agrupa cada string com a quantidade de vezes que ela aparece
+agrupar lista
+ | lista == [] = []
+ | otherwise = ([((head j), (contar (head j) j))]) ++ (agrupar (tirar j (head j)))
+ 	where
+ 		j = (juntar lista)
