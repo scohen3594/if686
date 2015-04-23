@@ -1,0 +1,61 @@
+-- Slide 1
+
+*Fibonacci
+*Ordenar
+
+
+-- Slide 2
+
+*getWord
+*dropWord
+*dropSpace
+*splitWords
+*getLine
+*dropLine
+*splitLines
+*fill
+*joinLines
+
+
+-- Slide 3
+
+*Todo feito anteriormente
+
+
+-- Slide 4
+
+(Feitos em sala, mas adicionados agora)
+*area
+*exercício de verificar se é fim de semana
+*exercício de verificar aulas de plc durante a semana
+
+(Feitos agora)
+*alteração no data Tree
+*showExpr
+*toList
+*fromList
+*depth
+*collapse
+*mapTree
+*bfs
+
+
+-- Slide 5
+
+*union
+*mapFilter
+*Exercício de colocar numa lista o primeiro elemento de uma lista de tuplas
+*Exercício que, dada uma lista de lista, dar como resposta os elementos de cada lista que são maiores que um dado int
+*mapFold
+
+
+-- Slide 6
+
+*somar cada elemento de uma lista a um int, usando função parcial
+*máximo elemento da lista, usando função parcial
+
+
+
+-- Slide da monitoria em horário de aula
+
+*AFD (feito na aula, mas colocado agora)
