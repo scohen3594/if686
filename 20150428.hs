@@ -1,3 +1,104 @@
+-- Exercícios slide 6
+--Determine, sem usar o GHCi, os tipos das seguintes expressões:
+
+-- foldr (:)
+
+(:) :: a -> [a] -> [a]
+
+foldr :: (s -> z -> z) -> z -> [s] -> z
+in1: (s -> z -> z)
+out1: z -> [s] -> z
+
+in1 = (:)
+(s -> z -> z) = a -> [a] -> [a]
+s = a
+z = [a]
+
+foldr (:) :: [a] -> [a] -> [a]
+
+--map.(.)
+
+(.) :: (b -> c) -> (a -> b) -> a -> c
+in1: (b -> c)
+out1: (a -> b) -> a -> c
+
+map :: (x -> y) -> [x] -> [y]
+in2: (x -> y)
+out2: [x] -> [y]
+
+
+out1 = in2
+(a -> b) -> (a -> c) = (x -> y)
+x = (a -> b)
+y = (a -> c)
+
+in1 -> out2
+(b -> c) -> [a - > b] -> [a -> c]
+
+map.(.) :: (b -> c) -> [a - > b] -> [a -> c]
+
+
+--foldr (+).(.).map
+--igual à letra a) do trabalho
+
+--map1.map2.foldr == map1.(map2.foldr)
+
+* map2.foldr
+
+foldr :: (s -> z -> z) -> z -> [s] -> z
+in1: (s -> z -> z)
+out1: z -> [s] -> z
+
+map2 :: (x -> y) -> [x] -> [y]
+in2: (x -> y)
+out2: [x] -> [y]
+
+
+out1 = in2
+z -> [s] -> z = (x -> y)
+x = z
+y = [s] -> z
+
+in1 -> out2
+(s -> z -> z) -> [x] -> [y]
+(s -> z -> z) -> [z] -> [[s] -> z]
+
+
+map2.foldr :: (s -> z -> z) -> [z] -> [[s] -> z]
+
+* map1.(map2.foldr)
+
+map2.foldr :: (s -> z -> z) -> [z] -> [[s] -> z]
+in1: (s -> z -> z)
+out1: [z] -> [[s] -> z]
+
+map1 :: (t -> u) -> [t] -> [u]
+in2: (t -> u)
+out2: [t] -> [u]
+
+ou1 = in2
+[z] -> [[s] -> z] = (t -> u)
+t = [z]
+u = [[s] -> z]
+
+in1 -> out2
+(s -> z -> z) -> [t] -> [u]
+(s -> z -> z) -> [[z]] -> [[[s] -> z]]
+
+
+map.(map.foldr) :: (s -> z -> z) -> [[z]] -> [[[s] -> z]]
+
+
+--map.((.) (foldr (++) (foldr (++) [] [[1], [2]])))
+--igual à letra c) do trabalho
+
+--(foldr).(.)$(!!)
+--igual à letra d) do trabalho
+
+
+
+
+
 -- Trabalho 10
 
 -- a) foldr (+).(.).map == (foldr (+)).((.).map)
